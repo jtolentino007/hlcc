@@ -9,6 +9,8 @@
 <!-- chartist CSS -->
 <link href="assets/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
 <link href="assets/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+<!-- Wizard CSS -->
+<link href="assets/plugins/bower_components/register-steps/steps.css" rel="stylesheet">
 <!-- Calendar CSS -->
 <link href="assets/plugins/bower_components/calendar/dist/fullcalendar.css" rel="stylesheet" />
 <!-- animation CSS -->

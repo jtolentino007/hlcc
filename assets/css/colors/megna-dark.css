@@ -17,10 +17,6 @@
   top: calc(50% - 3.5px);
   left: calc(50% - 3.5px);
 }
-/*Just change your choise color here its theme Colors*/
-body {
-  background: #2f323e;
-}
 /*Top Header Part*/
 .logo i {
   color: #4c5667;

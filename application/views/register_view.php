@@ -1,173 +1,126 @@
-<!doctype html>
+<!DOCTYPE html>  
 <html lang="en">
-
-<!-- Mirrored from demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/pages/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 May 2017 02:19:36 GMT -->
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/HLLogo.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 
-	<title>Registration - HisLife City Church</title>
+<title>Registration - HisLife City Church</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+<?php echo $_css_files; ?>
 
-    <?php echo $_css_files; ?>
+<style type="text/css">
+    body {
+        background-color: transparent;
+    }
 
+    #eliteregister li {
+        color: white;
+    }
+    .background-image {
+        background: url('assets/plugins/images/registration.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        -webkit-filter: blur(3px); /* Safari */
+        filter: blur(3px);
+        transform: scale(1.1); 
+    }
+
+    #msform input, #msform textarea {
+        border-radius: 0;
+        margin-bottom: 5px;
+        padding: 5px;
+        font-family: 'Rubik', sans-serif!important;
+    }
+
+    #msform input:focus, #msform textarea:focus {
+        border-color: #2196f3;
+    }
+</style>
 </head>
 <body>
-
-<nav class="navbar navbar-transparent navbar-absolute">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+<div class="background-image"></div>
+<section id="wrapper" class="step-register">
+      <div class="register-box">
+        <div class="">
+           <a href="javascript:void(0)" class="text-center db m-b-40" style="margin-bottom: 0!important;"><img style="height: 40px; width: 40px;" src="assets/plugins/images/HL.png" alt="Home" /><br/><h4 style="color: white;">HisLife City Church</h4></a>
+          <!-- multistep form -->
+            <form id="msform">
+                <!-- progressbar -->
+                <ul id="eliteregister" style="margin-bottom: 10px!important;">
+                    <li class="active">Account Setup</li>
+                    <li>Personal Details</li>
+                    <li>Photo</li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset id="frm_account">
+                    <h2 class="fs-title">Create your account</h2>
+                    <h3 class="fs-subtitle">Please provide your desired account details</h3>
+                    <input type="email" name="email" placeholder="Email" />
+                    <input id="pass" type="password" name="pass" placeholder="Password" />
+                    <input type="password" name="cpass" placeholder="Confirm Password" /><br>
+                    <button id="btnStep1" type="button" class="next action-button">Next</button>
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title">Personal Details</h2>
+                    <h3 class="fs-subtitle">Please fill in you personal details</h3>
+                    <input type="text" name="fname" placeholder="First Name" />
+                    <input type="text" name="lname" placeholder="Last Name" />
+                    <input type="text" name="phone" placeholder="Phone" />
+                    <textarea name="address" placeholder="Address"></textarea>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                     <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title">Upload your Image</h2>
+                    <h3 class="fs-subtitle">Please upload your image</h3>
+                    <img src="assets/image/default-user-image.png" style="max-width: 150px; max-height: 160px;"><br><br>
+                    <button class="btn btn-primary" style="width: 150px;">Upload</button><br><br><br>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="submit" class="submit action-button" value="Submit" />
+                </fieldset>
+            </form>
+            <div class="clear"></div>
         </div>
-        <div class="collapse navbar-collapse">
+      </div>
+</section>
+<?php echo $_js_files; ?>
+<script type="text/javascript">
+    (function(){
 
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                   <a href="Login">
-                        Looking for Login?
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="wrapper wrapper-full-page">
-    <div class="full-page register-page" data-color="orange" data-image="assets/img/full-screen-image-2.jpg">
-
-    <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="header-text">
-                            <h2>His Life City Church Management System</h2>
-                            <hr />
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-md-offset-2">
-                        <!-- <div class="media">
-                            <div class="media-left">
-                                <div class="icon">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <h4>Free Account</h4>
-                                Here you can write a feature description for your dashboard, let the users know what is the value that you give them.
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="media">
-                            <div class="media-left">
-                                <div class="icon">
-                                    <i class="fa fa-line-chart"></i>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <h4>Performance</h4>
-                                Here you can write a feature description for your dashboard, let the users know what is the value that you give them.
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="media">
-                            <div class="media-left">
-                                <div class="icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <h4>Support</h4>
-                                Here you can write a feature description for your dashboard, let the users know what is the value that you give them.
-
-                            </div>
-                        </div> -->
-
-                    </div>
-                    <div class="col-md-4 col-md-offset-s1">
-                        <form method="#" action="#">
-                            <div class="card card-plain">
-                                <div class="content">
-                                    <div class="form-group">
-                                        <input type="email" placeholder="Your First Name" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" placeholder="Your Last Name" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" placeholder="Company" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" placeholder="Enter email" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" placeholder="Password" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" placeholder="Password Confirmation" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="footer text-center">
-                                    <button type="submit" class="btn btn-fill btn-neutral btn-wd">Create Free Account</button>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    	<footer class="footer footer-transparent">
-            <div class="container">
-                <p class="copyright text-center">
-                    &copy; 2016 <a href="http://www.creative-tim.com/">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>
-
-    </div>
-
-</div>
-
-
-
-<?php echo $_switcher; ?>
-
-</body>
-    
-    <?php echo $_js_files; ?>
-
-    <script type="text/javascript">
-        $().ready(function(){
-            lbd.checkFullPageBackgroundImage();
-
-            setTimeout(function(){
-                // after 1000 ms we add the class animated to the login/register card
-                $('.card').removeClass('card-hidden');
-            }, 1000)
+        $('#frm_account').validate({
+            rules: {
+                email: {
+                    required:true,
+                    email:true
+                },
+                pass: {
+                    required:true,
+                    minlength:8
+                },
+                cpass: {
+                    required: true,
+                    equalTo: '#pass'    
+                }
+            },
+            messages : {
+                email: {
+                    required: 'Please Enter Email.',
+                    email: 'Please enter a valid email.'
+                }
+            }
         });
-    </script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-46172202-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-
-
-<!-- Mirrored from demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/pages/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 May 2017 02:21:01 GMT -->
+    })();
+</script>
+</body>
 </html>

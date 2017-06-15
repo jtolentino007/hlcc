@@ -24,7 +24,6 @@
   outline: none !important;
 }
 body {
-  background: #2f323e;
   font-family: 'Rubik', sans-serif;
   margin: 0;
   overflow-x: hidden;
@@ -3982,7 +3981,7 @@ table.focus-on tbody tr.focused td {
 }
 /* Login- register pages */
 .login-register {
-  background: url(../../plugins/images/login-register.jpg) no-repeat center center / cover !important;
+  background: url(assets/plugins/images/login-register.jpg) no-repeat center center / cover !important;
   height: 100%;
   position: fixed;
 }
@@ -4009,7 +4008,7 @@ table.focus-on tbody tr.focused td {
   height: 100%;
 }
 .new-login-register .lg-info-panel {
-  background: url(../../plugins/images/login-register.jpg) no-repeat center center / cover !important;
+  background: url(assets/plugins/images/login-register.jpg) no-repeat center center / cover !important;
   width: 500px;
   height: 100%;
   position: fixed;

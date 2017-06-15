@@ -11,9 +11,8 @@
 
 		public function index()	
 		{
-			$data['_switcher']=$this->load->view('templates/switcher','',TRUE);
-			$data['_css_files']=$this->load->view('assets/css_files','',TRUE);
-			$data['_js_files']=$this->load->view('assets/js_files','',TRUE);
+			$data['_css_files']=$this->load->view('template/assets/css_files','',TRUE);
+			$data['_js_files']=$this->load->view('template/assets/js_files','',TRUE);
 
 			$this->load->view('register_view',$data);
 		}

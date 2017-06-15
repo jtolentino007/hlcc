@@ -4,8 +4,12 @@
 <script src="assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/js/bootstrap.min.js"></script>
+<!-- jQuery Validation -->
+<script src="assets/plugins/bower_components/jqueryvalidation/jquery.validate.min.js"></script>
 <!-- Menu Plugin JavaScript -->
 <script src="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="assets/plugins/bower_components/register-steps/jquery.easing.min.js"></script>
+<script src="assets/plugins/bower_components/register-steps/register-init.js"></script>
 <!--slimscroll JavaScript -->
 <script src="assets/js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->

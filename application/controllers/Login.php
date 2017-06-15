@@ -23,9 +23,8 @@ class Login extends CORE_Controller {
     {
         $this->create_required_default_data();
 
-        $data['_switcher']=$this->load->view('templates/switcher','',TRUE);
-		$data['_css_files']=$this->load->view('assets/css_files','',TRUE);
-		$data['_js_files']=$this->load->view('assets/js_files','',TRUE);
+		$data['_css_files']=$this->load->view('template/assets/css_files','',TRUE);
+		$data['_js_files']=$this->load->view('template/assets/js_files','',TRUE);
 
         $company=$this->Company_model->get_list();
         $data['company_info']=$company[0];
@@ -100,7 +99,7 @@ class Login extends CORE_Controller {
                         echo json_encode($response);
 
                     }else{ //not valid
-
+                        $response['title']='Authentication Error';
                         $response['stat']='error';
                         $response['msg']='Invalid username or password.';
                         echo json_encode($response);
