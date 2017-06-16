@@ -57,7 +57,7 @@
                             <div class="white-box">
                                 <h3 class="box-title m-b-0 text-primary b-b">View Lifegroup</h3><br>
                                 <!-- <p class="text-muted m-b-30">Data table example</p> -->
-                                <button id="btn_new" class="btn btn-primary waves-effect waves-light" type="button"><span class="btn-label"><i class="mdi mdi-account-plus fa-fw"></i></span>Add New Lifegroup</button>
+                                <button id="btn_new" class="btn btn-primary waves-effect waves-light" type="button"><span class="btn-label"><i class="mdi mdi-plus fa-fw"></i></span>Add New Lifegroup</button>
                                 <div class="table-responsive">
                                     <table id="tbl_lifegroup" class="table table-striped">
                                         <thead>

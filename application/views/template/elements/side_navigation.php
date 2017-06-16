@@ -24,6 +24,7 @@
                     <li><a href="Visitors"><i class="ti-user"></i> <span class="hide-menu">Visitors</span></a></li>
                     <li><a href="Network"><i class="ti-view-grid"></i> <span class="hide-menu">Network</span></a></li>
                     <li><a href="Lifegroup"><i class="ti-heart"></i> <span class="hide-menu">Lifegroup</span></a></li>
+                    <li><a href="School"><i class="ti-book"></i> <span class="hide-menu">Schools</span></a></li>
                 </ul>
             </li>
         </ul>
