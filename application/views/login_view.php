@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/HisLife.png">
 <title>Login - HisLife City Church</title>
 <?php echo $_css_files; ?>
 <style>
@@ -21,6 +22,11 @@
   .new-login-register .lg-info-panel {
     background: url('assets/plugins/images/test.jpg') no-repeat center center / cover!important;
   }
+
+  body {
+    background: transparent;
+  }
+  
 </style>
 </head>
 <body>

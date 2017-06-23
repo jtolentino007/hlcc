@@ -3,7 +3,7 @@
 <!-- ============================================================== -->
 <div class="right-sidebar">
     <div class="slimscrollright">
-        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+        <div class="rpanel-title"> Switcher <span><i class="ti-close right-side-toggle"></i></span> </div>
         <div class="r-panel-body">
             <ul id="themecolors" class="m-t-20">
                 <li><b>With Light sidebar</b></li>
@@ -22,7 +22,7 @@
                 <li><a href="javascript:void(0)" theme="purple-dark" class="purple-dark-theme">11</a></li>
                 <li><a href="javascript:void(0)" theme="megna-dark" class="megna-dark-theme working">12</a></li>
             </ul>
-            <ul class="m-t-20 chatonline">
+            <!-- <ul class="m-t-20 chatonline">
                 <li><b>Chat option</b></li>
                 <li>
                     <a href="javascript:void(0)"><img src="../plugins/images/users/varun.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
@@ -48,7 +48,7 @@
                 <li>
                     <a href="javascript:void(0)"><img src="../plugins/images/users/pawandeep.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
 </div>

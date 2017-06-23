@@ -7,6 +7,7 @@
 		function __construct()
 		{
 			parent::__construct('');
+			$this->validate_session();
 		}
 
 		public function index()

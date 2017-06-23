@@ -10,6 +10,7 @@
 			//$this->validate_session();
 			$this->load->model('Lifegroup_model');
 			$this->load->model('Network_model');
+			$this->load->model('Visitors_model');
 		}
 
 		public function index()
@@ -22,6 +23,7 @@
         	$data['title'] = 'Lifegroup - His Life City Church';
 
         	$data['network'] = $this->Network_model->get_list(array('network.is_active'=>TRUE,'network.is_deleted'=>FALSE));
+        	$data['visitors'] = $this->Visitors_model->get_list(array('visitors.is_active'=>TRUE,'visitors.is_deleted'=>FALSE));
 
 			$this->load->view('lifegroup_view',$data);
 		}
@@ -29,8 +31,9 @@
 		function transaction($txn = null) {
 	        switch ($txn) {
 	            case 'list':
-	            	$m_lifegroup = $this->Lifegroup_model;
-	                $response['data'] = $this->response_rows(array('lifegroup.is_deleted'=>FALSE));
+	                $response['data'] = $this->response_rows(array('lifegroup.is_deleted'=>FALSE),
+	                	'lifegroup.*, CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname'
+	                );
 	                echo json_encode($response);
 	            	break;
 
@@ -41,7 +44,7 @@
                 	//m_lifegroup->created_by_user = $this->session->user_id;
 
                 	$m_lifegroup->lifegroup_name = $this->input->post('lifegroup_name', TRUE);
-                	$m_lifegroup->lifegroup_leader = $this->input->post('lifegroup_leader', TRUE); 
+                	$m_lifegroup->visitor_id = $this->input->post('visitor_id', TRUE); 
                 	$m_lifegroup->network_id = $this->input->post('network_id', TRUE);           	
 
                 	$m_lifegroup->save();	
@@ -52,7 +55,9 @@
 	                $response['stat'] = 'success';
 	                $response['msg'] = 'Lifegroup information successfully created.';
 
-	                $response['row_added'] = $this->response_rows($lifegroup_id);
+	                $response['row_added'] = $this->response_rows($lifegroup_id,
+	                	'lifegroup.*, CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname'
+	                );
 	                echo json_encode($response);
 	            	break;
 
@@ -61,7 +66,7 @@
 
 	                $lifegroup_id = $this->input->post('lifegroup_id', TRUE);
 	                $m_lifegroup->lifegroup_name = $this->input->post('lifegroup_name', TRUE);
-	                $m_lifegroup->lifegroup_leader = $this->input->post('lifegroup_leader', TRUE);
+	                $m_lifegroup->visitor_id = $this->input->post('visitor_id', TRUE);
                 	$m_lifegroup->network_id = $this->input->post('network_id', TRUE);     
 
 	                $m_lifegroup->modify($lifegroup_id);
@@ -70,7 +75,9 @@
 	                $response['stat'] = 'success';
 	                $response['msg'] = 'Lifegroup information successfully updated.';
 
-	                $response['row_updated'] = $this->response_rows($lifegroup_id);
+	                $response['row_updated'] = $this->response_rows($lifegroup_id,
+	                	'lifegroup.*, CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname'
+	                );
 	                echo json_encode($response);
 	                break;
 
@@ -100,10 +107,11 @@
 	    	return $this->Lifegroup_model->get_list(
 	    		$filter,
 
-	    		'lifegroup.*,network.network_name,network.network_leader',
+	    		'lifegroup.*,network.network_name,CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname',
 
 	    		array(
-	    			array('network','network.network_id=lifegroup.network_id','left')
+	    			array('network','network.network_id=lifegroup.network_id','left'),
+	    			array('visitors','visitors.visitor_id=lifegroup.visitor_id','left')
 	    		)
 	    	);
 	    }

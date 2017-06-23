@@ -5,7 +5,7 @@
 <div class="navbar-header">
     <div class="top-left-part">
         <!-- Logo -->
-        <a class="logo" href="index.html">
+        <a class="logo" href="Dashboard">
             <!-- Logo icon image, you can use font-icon also --><b>
             <!--This is dark logo icon--><img src="assets/plugins/images/HLLogo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="assets/plugins/images/HLLogo.png"  width="40" height="40" alt="home" class="light-logo" />
          </b>
@@ -169,12 +169,12 @@
                 </li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+                <!-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li> -->
                 <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="Login/transaction/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                <li><a href="Login"><i class="fa fa-power-off"></i> Logout</a></li>
             </ul>
             <!-- /.dropdown-user -->
         </li>

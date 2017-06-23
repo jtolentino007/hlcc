@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                         <ol class="breadcrumb">
-                            <li><a href="javascript:void(0)">Master Files</a></li>
+                            <li><a href="javascript:void(0)">References</a></li>
                             <li class="active">Lifegroup</li>
                         </ol>
                     </div>
@@ -92,8 +92,20 @@
                                                 <label for="name">Lifegroup Name</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="form-group m-b-40">
+                                            <!-- <div class="form-group m-b-40">
                                                 <input type="text" class="form-control tooltip-info" name="lifegroup_leader" id="lg_leader" data-toggle="tooltip" data-placement="bottom" title="Lifegroup Leader" data-error="Oh, there should be a Lifegroup Leader." required><span class="highlight"></span> <span class="bar"></span>
+                                                <label for="lg_leader">Lifegroup Leader</label>
+                                                <div class="help-block with-errors"></div>
+                                            </div> -->
+                                            <div class="form-group m-b-40">
+                                                <select class="form-control p-0 tooltip-info" name="visitor_id" id="lg_leader" data-toggle="tooltip" data-placement="bottom" title="Lifegroup Leader" data-error="Oh, there should be a Lifegroup Leader." required>
+                                                    <option></option>
+                                                    <?php 
+                                                        foreach($visitors as $row){
+                                                            echo '<option value="'.$row->visitor_id.'">'.$row->visitor_fname.'&nbsp;'.$row->visitor_mname.'&nbsp;'.$row->visitor_lname.'</option>';
+                                                        }
+                                                    ?>
+                                                </select><span class="highlight"></span> <span class="bar"></span>
                                                 <label for="lg_leader">Lifegroup Leader</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -169,7 +181,7 @@
                     "ajax" : "Lifegroup/transaction/list",
                     "columns": [
                         { targets:[0],data: "lifegroup_name" },
-                        { targets:[1],data: "lifegroup_leader" },
+                        { targets:[1],data: "fullname" },
                         { targets:[2],data: "network_name" },
                         {
                             targets:[3],

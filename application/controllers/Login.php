@@ -10,7 +10,6 @@ class Login extends CORE_Controller {
         $this->load->model('User_groups_model');
         $this->load->model('Rights_link_model');
         $this->load->model('User_group_right_model');
-        $this->load->model('Company_model');
         $this->load->model(
             array(
                 'Users_model'
@@ -26,8 +25,8 @@ class Login extends CORE_Controller {
 		$data['_css_files']=$this->load->view('template/assets/css_files','',TRUE);
 		$data['_js_files']=$this->load->view('template/assets/js_files','',TRUE);
 
-        $company=$this->Company_model->get_list();
-        $data['company_info']=$company[0];
+       /* $company=$this->Company_model->get_list();
+        $data['company_info']=$company[0];*/
 
         $this->load->view('login_view',$data);
     }

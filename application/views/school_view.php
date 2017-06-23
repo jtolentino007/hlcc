@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                         <ol class="breadcrumb">
-                            <li><a href="javascript:void(0)">Master Files</a></li>
+                            <li><a href="javascript:void(0)">References</a></li>
                             <li class="active">Schools</li>
                         </ol>
                     </div>
@@ -62,8 +62,8 @@
                                     <table id="tbl_school" class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Schools</th>
-                                                <th>Schools Description</th>
+                                                <th>School</th>
+                                                <th>School Description</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
                                         </thead>
@@ -92,7 +92,7 @@
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group m-b-40">
-                                                <input type="text" class="form-control tooltip-info" name="school_description" id="leader" data-toggle="tooltip" data-placement="bottom" title="School Desciption" data-error="Give a short description of the school" required><span class="highlight"></span> <span class="bar"></span>
+                                                <input type="text" class="form-control tooltip-info" name="school_description" id="leader" data-toggle="tooltip" data-placement="bottom" title="School Desciption" data-error="Give a short description of the school." required><span class="highlight"></span> <span class="bar"></span>
                                                 <label for="leader">School Description</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -101,7 +101,7 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-9" align="left" style="margin-left: 0px;">
-                                                                <button type="submit" id="btn_save" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-check"></i></span>Submit</button>
+                                                                <button id="btn_save" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-check"></i></span>Submit</button>
                                                                 <button id="btn_cancel" class="btn btn-danger waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-times"></i></span>Cancel</button>
                                                             </div>
                                                         </div>
@@ -151,7 +151,7 @@
                     "bLengthChange":false,
                     "pageLength":15,
                     "language": {
-                         searchPlaceholder: "Search Schools"
+                         searchPlaceholder: "Search School"
                      },
                     "ajax" : "School/transaction/list",
                     "columns": [

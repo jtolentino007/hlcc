@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                         <ol class="breadcrumb">
-                            <li><a href="javascript:void(0)">Master Files</a></li>
+                            <li><a href="javascript:void(0)">References</a></li>
                             <li class="active">Network</li>
                         </ol>
                     </div>
@@ -64,6 +64,7 @@
                                             <tr>
                                                 <th>Network</th>
                                                 <th>Network Leader</th>
+                                                <th>Group</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
                                         </thead>
@@ -92,8 +93,27 @@
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group m-b-40">
-                                                <input type="text" class="form-control tooltip-info" name="network_leader" id="leader" data-toggle="tooltip" data-placement="bottom" title="Network Leader" data-error="Oh, there should be a Network Leader." required><span class="highlight"></span> <span class="bar"></span>
+                                                <select class="form-control p-0 tooltip-info" name="visitor_id" id="leader" data-toggle="tooltip" data-placement="bottom" title="Network Leader" data-error="Kindly put the Network Leader." required>
+                                                    <option></option>
+                                                    <?php 
+                                                        foreach($visitors as $row){
+                                                            echo '<option value="'.$row->visitor_id.'">'.$row->visitor_fname.'&nbsp;'.$row->visitor_mname.'&nbsp;'.$row->visitor_lname.'</option>';
+                                                        }
+                                                    ?>
+                                                </select><span class="highlight"></span> <span class="bar"></span>
                                                 <label for="leader">Network Leader</label>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="form-group m-b-40">
+                                                <select class="form-control p-0 tooltip-info" name="group_id" id="net_group" data-toggle="tooltip" data-placement="bottom" title="Group" data-error="Oh, there should be a group." required>
+                                                    <option></option>
+                                                    <?php 
+                                                        foreach($groups as $row){
+                                                            echo '<option value="'.$row->group_id.'">'.$row->group_name.'</option>';
+                                                        }
+                                                    ?>
+                                                </select><span class="highlight"></span> <span class="bar"></span>
+                                                <label for="net_group">Group</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-actions">
@@ -101,7 +121,7 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-9" align="left" style="margin-left: 0px;">
-                                                                <button type="submit" id="btn_save" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-check"></i></span>Submit</button>
+                                                                <button id="btn_save" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-check"></i></span>Submit</button>
                                                                 <button id="btn_cancel" class="btn btn-danger waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-times"></i></span>Cancel</button>
                                                             </div>
                                                         </div>
@@ -156,9 +176,10 @@
                     "ajax" : "Network/transaction/list",
                     "columns": [
                         { targets:[0],data: "network_name" },
-                        { targets:[1],data: "network_leader" },
+                        { targets:[1],data: "fullname" },
+                        { targets:[1],data: "group_name" },
                         {
-                            targets:[2],
+                            targets:[3],
                             render: function (data, type, full, meta){
                                 var btn_edit='<button class="btn btn-primary btn-circle btn-sm" name="edit_info" data-toggle="tooltip" data-placement="top" title="Edit" style="margin-left:-5px;"><i class="fa fa-pencil"></i> </button>';
                                 var btn_trash='<button class="btn btn-danger btn-circle btn-sm" id="remove_info" name="remove_info" data-toggle="tooltip" data-placement="top" title="Move to trash" style="margin-right:-5px;"><i class="fa fa-trash-o"></i></button>';

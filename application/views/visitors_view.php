@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                         <ol class="breadcrumb">
-                            <li><a href="javascript:void(0)">Master Files</a></li>
+                            <li><a href="javascript:void(0)">References</a></li>
                             <li class="active">Visitors</li>
                         </ol>
                     </div>
@@ -62,7 +62,7 @@
                                     <table id="tbl_visitors" class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th></th>
+                                                <!-- <th></th> -->
                                                 <th>Name</th>
                                                 <th>Date Visited</th>
                                                 <th>Address</th>
@@ -130,8 +130,22 @@
                                                 <label for="email_add">Email Address</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="form-group m-b-40">
+                                            <!-- <div class="form-group m-b-40">
                                                 <input type="text" class="form-control tooltip-info" name="visitor_school" id="school" data-toggle="tooltip" data-placement="bottom" title="Current School" data-error="Kindly put the visitor's school." required><span class="highlight"></span> <span class="bar"></span>
+                                                <label for="school">School</label>
+                                                <div class="help-block with-errors"></div>
+                                            </div> -->
+
+
+                                            <div class="form-group m-b-40">
+                                                <select class="form-control p-0 tooltip-info" name="school_id" id="school" data-toggle="tooltip" data-placement="bottom" title="Current School" data-error="Kindly put the visitor's school." required>
+                                                    <option></option>
+                                                    <?php 
+                                                        foreach($schools as $row){
+                                                            echo '<option value="'.$row->school_id.'">'.$row->school_name.'</option>';
+                                                        }
+                                                    ?>
+                                                </select><span class="highlight"></span> <span class="bar"></span>
                                                 <label for="school">School</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -140,7 +154,7 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-9" align="left" style="margin-left: 0px;">
-                                                                <button type="submit" id="btn_save" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-check"></i></span>Submit</button>
+                                                                <button id="btn_save" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-check"></i></span>Submit</button>
                                                                 <button id="btn_cancel" class="btn btn-danger waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-times"></i></span>Cancel</button>
                                                             </div>
                                                         </div>
@@ -189,24 +203,24 @@
                     "bLengthChange":false,
                     "pageLength":15,
                     "language": {
-                         searchPlaceholder: "Search Visitor's Name"
+                         searchPlaceholder: "Search Visitor"
                      },
                     "ajax" : "Visitors/transaction/list",
                     "columns": [
-                        {
+                        /*{
                             "targets": [0],
                             "class":          "details-control",
                             "orderable":      false,
                             "data":           null,
                             "defaultContent": ""
-                        },
-                        { targets:[1],data: "fullname" },
-                        { targets:[2],data: "date_visited" },
+                        },*/
+                        { targets:[0],data: "fullname" },
+                        { targets:[1],data: "date_visited" },
+                        { targets:[2],data: "visitor_address" },
                         { targets:[3],data: "visitor_address" },
-                        { targets:[4],data: "visitor_address" },
-                        { targets:[5],data: "visitor_contact_no" },
+                        { targets:[4],data: "visitor_contact_no" },
                         {
-                            targets:[6],
+                            targets:[5],
                             render: function (data, type, full, meta){
                                 var btn_edit='<button class="btn btn-primary btn-circle btn-sm" name="edit_info" data-toggle="tooltip" data-placement="top" title="Edit" style="margin-left:-5px;"><i class="fa fa-pencil"></i> </button>';
                                 var btn_trash='<button class="btn btn-danger btn-circle btn-sm" id="remove_info" name="remove_info" data-toggle="tooltip" data-placement="top" title="Move to trash" style="margin-right:-5px;"><i class="fa fa-trash-o"></i></button>';

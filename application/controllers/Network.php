@@ -9,6 +9,8 @@
 			parent::__construct('');
 			//$this->validate_session();
 			$this->load->model('Network_model');
+			$this->load->model('Visitors_model');
+			$this->load->model('Group_model');
 		}
 
 		public function index()
@@ -20,14 +22,18 @@
         	$data['_top_navigation'] = $this->load->view('template/elements/top_navigation','',TRUE);
         	$data['title'] = 'Network - His Life City Church';
 
+        	$data['visitors'] = $this->Visitors_model->get_list(array('visitors.is_active'=>TRUE,'visitors.is_deleted'=>FALSE));
+        	$data['groups'] = $this->Group_model->get_list(array('groups.is_active'=>TRUE,'groups.is_deleted'=>FALSE));
+
 			$this->load->view('network_view',$data);
 		}
 
 		function transaction($txn = null) {
-	        switch ($txn) {
-	            case 'list':
-	            	$m_network = $this->Network_model;
-	                $response['data'] = $m_network->get_list('network.is_deleted=0');
+			 switch ($txn) {
+	        	case 'list':
+	                $response['data'] = $this->response_rows(array('network.is_deleted'=>FALSE),
+	                	'network.*,CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname'
+	                );
 	                echo json_encode($response);
 	            	break;
 
@@ -38,7 +44,8 @@
                 	//m_network->created_by_user = $this->session->user_id;
 
                 	$m_network->network_name = $this->input->post('network_name', TRUE);
-                	$m_network->network_leader = $this->input->post('network_leader', TRUE);           	
+                	$m_network->visitor_id = $this->input->post('visitor_id', TRUE);   
+                	$m_network->group_id = $this->input->post('group_id', TRUE);        	
 
                 	$m_network->save();	
 
@@ -48,7 +55,9 @@
 	                $response['stat'] = 'success';
 	                $response['msg'] = 'Network information successfully created.';
 
-	                $response['row_added'] = $m_network->get_list($network_id);
+	                $response['row_added'] = $this->response_rows($network_id,
+	                	'network.*,CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname'
+	                );
 	                echo json_encode($response);
 	            	break;
 
@@ -57,7 +66,8 @@
 
 	                $network_id = $this->input->post('network_id', TRUE);
 	                $m_network->network_name = $this->input->post('network_name', TRUE);
-                	$m_network->network_leader = $this->input->post('network_leader', TRUE); 
+                	$m_network->visitor_id = $this->input->post('visitor_id', TRUE); 
+                	$m_network->group_id = $this->input->post('group_id', TRUE);
 
 	                $m_network->modify($network_id);
 
@@ -65,7 +75,9 @@
 	                $response['stat'] = 'success';
 	                $response['msg'] = 'Network information successfully updated.';
 
-	                $response['row_updated'] = $m_network->get_list($network_id);
+	                $response['row_updated'] = $this->response_rows($network_id,
+	                	'network.*,CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname'
+	                );
 	                echo json_encode($response);
 	                break;
 
@@ -85,6 +97,23 @@
 	                }
 	                break;
 	        }
+	    }
+
+	    //=======================================================//
+        //                      USER DEFINE                      //
+        //=======================================================//
+
+	    function response_rows($filter){
+	    	return $this->Network_model->get_list(
+	    		$filter,
+
+	    		'network.*,groups.group_name,CONCAT(visitor_fname, " ", visitor_mname, " ", visitor_lname) AS fullname',
+
+	    		array(
+	    			array('visitors','visitors.visitor_id=network.visitor_id','left'),
+	    			array('groups','groups.group_id=network.group_id','left')
+	    		)
+	    	);
 	    }
 	}
 ?>
